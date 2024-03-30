@@ -1,6 +1,13 @@
 import React from "react"
 
 class Item extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      clicks: 0,
+    }
+  }
   clickMe() {
     console.log("I was clicked.")
   }
@@ -9,7 +16,10 @@ class Item extends React.Component {
     return (
       <h1
         onClick={() => {
-          this.clickMe()
+          // this.clickMe()
+          this.setState({
+            clicks: this.state.clicks + 1,
+          })
         }}
       >
         Hello, {this.props.name}!
